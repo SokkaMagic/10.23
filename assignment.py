@@ -3,14 +3,22 @@
 
 # Exercise 1 - Linear queue
 Queue = []
+for x in range(6):
+    Queue.append(-1)
 HeadPointer = -1
 TailPointer = -1
 # Write code here to fill Queue with 6 elements, all "" (empty string)
 
 
 def Enqueue(Name):
-    # Write your code here
-    pass
+    global Queue, HeadPointer, TailPointer
+    if TailPointer == 5:
+        return False
+    TailPointer = TailPointer + 1
+    Queue[TailPointer] = Name
+    if HeadPointer == -1:
+        HeadPointer = 0
+    return True
 
 
 def Dequeue():
@@ -45,4 +53,3 @@ def ShowQueue():
 def HotPotato(Names, Passes):
     # Write your code here
     pass
-
