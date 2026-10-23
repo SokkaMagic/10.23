@@ -45,24 +45,26 @@ def CircularEnqueue(Name):
         CircularHead = 0
         CircularTail = 0
     else:
-        CircularTail = CircularTail + 1
-        if CircularTail == 6:
-            CircularTail = 0
+        CircularTail = (CircularTail + 1) % 6
     CircularQueue[CircularTail] = Name
-
+    NumberItems = NumberItems + 1
+    return True
 
 def CircularDequeue():
     global CircularQueue, CircularHead, CircularTail, NumberItems
+
     if NumberItems == 0:
         return ""
+
     DataToReturn = CircularQueue[CircularHead]
-    CircularHead = CircularHead + 1
-    if CircularHead == 6:
-        CircularHead = 0
+    CircularQueue[CircularHead] = ""
+    CircularHead = (CircularHead + 1) % 6
     NumberItems = NumberItems - 1
+
     if NumberItems == 0:
         CircularHead = -1
         CircularTail = -1
+
     return DataToReturn
 
 def ShowQueue():
