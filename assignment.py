@@ -39,16 +39,16 @@ NumberItems = 0
 
 def CircularEnqueue(Name):
     global CircularQueue, CircularHead, CircularTail, NumberItems
-    if NumberItems == 5:
+    if NumberItems == 6:
         return False
     if NumberItems == 0:
         CircularHead = 0
-    CircularTail = 0
+        CircularTail = 0
     else:
         CircularTail = CircularTail + 1
         if CircularTail == 5:
             CircularTail = 0
-        CircularQueue[CircularTail] = Name
+    CircularQueue[CircularTail] = Name
 
 
 def CircularDequeue():
