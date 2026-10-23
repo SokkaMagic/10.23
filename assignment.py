@@ -68,14 +68,21 @@ def CircularDequeue():
     return DataToReturn
 
 def ShowQueue():
-    res=""
     if NumberItems == 0:
         return ""
-    else:
-        for i in range(NumberItems-1):
-            res = res + CircularQueue[i]+", "
-        res = res + CircularQueue[NumberItems-1]
-        return res
+
+    res = ""
+    Current = CircularHead
+
+    for i in range(NumberItems):
+        res = res + CircularQueue[Current]
+
+        if i < NumberItems - 1:
+            res = res + ", "
+
+        Current = (Current + 1) % 6
+
+    return res
 
 # Exercise 3 - Hot potato
 def HotPotato(Names, Passes):
