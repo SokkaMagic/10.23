@@ -30,6 +30,7 @@ def Dequeue():
 
 # Exercise 2 - Circular queue
 CircularQueue = []
+CircularQueue = [""] * 6
 CircularHead = -1
 CircularTail = -1
 NumberItems = 0
@@ -37,14 +38,32 @@ NumberItems = 0
 
 
 def CircularEnqueue(Name):
-    # Write your code here
-    pass
+    global CircularQueue, CircularHead, CircularTail, NumberItems
+    if NumberItems == 5:
+        return False
+    if NumberItems == 0:
+        CircularHead = 0
+    CircularTail = 0
+    else:
+        CircularTail = CircularTail + 1
+        if CircularTail == 5:
+            CircularTail = 0
+        CircularQueue[CircularTail] = Name
 
 
 def CircularDequeue():
-    # Write your code here
-    pass
-
+    global CircularQueue, CircularHead, CircularTail, NumberItems
+    if NumberItems == 0:
+        return -1
+    DataToReturn = CircularQueue[CircularHead]
+    CircularHead = CircularHead + 1
+    if CircularHead == 5:
+        CircularHead = 0
+    NumberItems = NumberItems - 1
+    if NumberItems == 0:
+        CircularHead = -1
+        CircularTail = -1
+    return DataToReturn
 
 def ShowQueue():
     # Write your code here
