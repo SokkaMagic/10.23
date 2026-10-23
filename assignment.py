@@ -86,5 +86,22 @@ def ShowQueue():
 
 # Exercise 3 - Hot potato
 def HotPotato(Names, Passes):
-    # Write your code here
-    pass
+    global CircularHead, CircularTail, NumberItems, CircularQueue
+
+    CircularHead = -1
+    CircularTail = -1
+    NumberItems = 0
+    CircularQueue = [""] * 6
+
+    if len(Names) == 0:
+        return ""
+
+    for Name in Names:
+        CircularEnqueue(Name)
+    while NumberItems > 1:
+        for i in range(Passes):
+            Name = CircularDequeue()
+            CircularEnqueue(Name)
+        CircularDequeue()
+
+    return CircularDequeue()
