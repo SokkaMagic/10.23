@@ -22,9 +22,12 @@ def Enqueue(Name):
 
 
 def Dequeue():
-    # Write your code here
-    pass
-
+    global Queue, HeadPointer, TailPointer
+    if HeadPointer == -1 or HeadPointer > TailPointer:
+        return -1
+    DataToReturn = Queue[HeadPointer]
+    HeadPointer = HeadPointer + 1
+    return DataToReturn
 
 # Exercise 2 - Circular queue
 CircularQueue = []
