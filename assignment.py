@@ -54,7 +54,7 @@ def CircularEnqueue(Name):
 def CircularDequeue():
     global CircularQueue, CircularHead, CircularTail, NumberItems
     if NumberItems == 0:
-        return -1
+        return ""
     DataToReturn = CircularQueue[CircularHead]
     CircularHead = CircularHead + 1
     if CircularHead == 5:
