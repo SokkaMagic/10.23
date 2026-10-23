@@ -3,8 +3,7 @@
 
 # Exercise 1 - Linear queue
 Queue = []
-for x in range(6):
-    Queue.append(-1)
+Queue = [""] * 6
 HeadPointer = -1
 TailPointer = -1
 # Write code here to fill Queue with 6 elements, all "" (empty string)
@@ -24,7 +23,7 @@ def Enqueue(Name):
 def Dequeue():
     global Queue, HeadPointer, TailPointer
     if HeadPointer == -1 or HeadPointer > TailPointer:
-        return -1
+        return ""
     DataToReturn = Queue[HeadPointer]
     HeadPointer = HeadPointer + 1
     return DataToReturn
